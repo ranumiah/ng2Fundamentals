@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { EventsAppCoponent } from './events-app.component'
+import { EventListComponent } from './events/events-list.component'
 
 // So this guy describes the class that follows it
 @NgModule({
-    imports: [BrowserModule], // What stuff do I need?
-    declarations: [EventsAppCoponent],  // What's in my app module?
-    bootstrap: [EventsAppCoponent] // Where do I start?
+    imports: [BrowserModule],       // What stuff do I need?
+    declarations: [                 // What's in my app module?
+        EventsAppCoponent,
+        EventListComponent
+    ],
+    bootstrap: [EventsAppCoponent]  // Where do I start?
 })
 export class AppModule { }
 
