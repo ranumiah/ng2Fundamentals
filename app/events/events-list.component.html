@@ -1,10 +1,9 @@
-<div class="well hoverwell thumbnail">
-      <h2>{{event.name}}</h2>
-      <div>Date: {{event.date}}</div>
-      <div>Time: {{event.time}}</div>
-      <div>Price: \${{event.price}}</div>
-      <div>
-        <span>Location: {{event.location.address}}</span>
-        <span class="pad-left">{{event.location.city}}, {{event.location.country}}</span>
-      </div>
-    </div>
+<div>
+  <h1>Upcoming Anuglar 2 Events</h1>
+  <hr/>
+  <!-- The Selector <event-thumbnail />
+       [event] ==> This must match the name of an Input() parameter in the child component
+       "event1" ==> This must be a property exposed in the parent component
+  -->
+  <event-thumbnail [event]="event1"></event-thumbnail>
+</div>
