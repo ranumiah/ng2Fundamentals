@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { EventsAppCoponent } from './events-app.component'
 import { EventListComponent } from './events/events-list.component'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
+import { NavBarComponent } from './nav/navbar.component'
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -11,7 +12,8 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component'
     declarations: [                 // What's in my app module?
         EventsAppCoponent,
         EventListComponent,
-        EventThumbnailComponent
+        EventThumbnailComponent,
+        NavBarComponent
     ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
 })
