@@ -21,13 +21,13 @@ npm start
 My Notes
 ========================
 
-.Net Core Basics
+#### .Net Core Basics
     dotnet --version	==> This tells you which version of dotnet core you have installed
     dotnet new [Type]	==> This creates a dotnet template based on the type specified i.e console, classlib, web, mvc, webapi, sln, etc
     dotnet restore		==> This downloads packages from Nuget, which are need in the project
     dotnet run			==> This runs the exe.
 
-NPM
+#### NPM
     npm update --save	    ==> Update all packages inside package.json
     npm install	    	    ==> Install all packages define in pacakge.json to node_modules/* folder
     npm start	    	    ==> Runs the command specified in the Package.Json
@@ -55,7 +55,7 @@ Package.json
         "firefox": "start firefox http://localhost:5000"
     }
 
-Version Range Definition
+#### Version Range Definition
     version	            ==> Must match version exactly
     >version	        ==> Must be greater than version
     >=version	        ==> Must be greater or equal to the version
@@ -75,19 +75,19 @@ Version Range Definition
     range1 || range2	==> Passes if either range1 or range2 are satisfied.
     latest	            ==> Obtains latest release
 
-Package.Json
+#### Package.Json
     The dependencies are the libraries that your application uses at runtime.
     The devDependencies are libraries you use during your build.
     Shim        ==> It is a piece of code that implements language features not natively supported by the browser.
     TypeScript  ==> It provides Optional Static Typing, Classe, and Interfaces. It is the transpiler used by SystemJS, which it uses to transpile TypeScript into JavaScript
                     tsc -w    ==> Runs the TypeScript compiler in watch mode so whenever you save a modified TypeScript file, the compiler regenerates the JavaScript
 
-The dependencies section of package.json contains:
+#### The dependencies section of package.json contains:
     Features    ==> Feature packages give the application framework and utility capabilities.
     Polyfills   ==> Polyfills plug gaps in the browser's JavaScript implementation.
     Other       ==> Other libraries that support the application such as bootstrap for HTML widgets and styling.
 
-Feature Packages
+#### Feature Packages
     @angular/core                       ==>  Critical runtime parts of the framework needed by every application. Includes all metadata decorators, Component, Directive, dependency injection, and the component lifecycle hooks.
     @angular/common                     ==> The commonly needed services, pipes, and directives provided by the Angular team.
     @angular/compiler                   ==> Angular's Template Compiler. It understands templates and can convert them to code that makes the application run and render. Typically you don’t interact with the compiler directly; rather, you use it indirectly via platform-browser-dynamic or the offline template compiler.
@@ -98,22 +98,24 @@ Feature Packages
     @angular/upgrade                    ==> Set of utilities for upgrading AngularJS applications to Angular.
     system.js                           ==> Acts as a shim for a dynamic module loader compatible with the ES2015 module specification. Other viable choices include the well-regarded webpack.
 
-Polyfill Packages
+#### Polyfill Packages
     core-js	            ==> Corejs in simple words it just fills the gap between different versions of ECMA. Suppose you have written code in ECMA6 and you want to run it in browser where it does not support ECMA6 then core-js comes into picture.
     zone.js	            ==> “A Zone is an execution context that persists across async tasks”. In Simple Words Zone wraps all async tasks into one unit.
     reflect-metadata	==> is used to enable dependency injection through decorators.
     rxjs	            ==> RxJS (Reactive Extensions for JavaScript) is a library for Observables. This lets you “fire this promise chain every time some data arrives”
 
-Other Packages
+#### Other Packages
     angular-in-memory-web-api	==> An Angular-supported library that simulates a remote server's web api without requiring an actual server or real http calls. Good for demos, samples, and early stage development (before we even have a server).
     bootstrap	                ==> Bootstrap is a popular HTML and CSS framework for designing responsive web apps. Some of the samples improve their appearance with bootstrap.
 
-DevDependencies Packages
-    concurrently	        ==> A utility to run multiple npm commands concurrently on OS/X, Windows, and Linux operating systems.
-    typescript	            ==> the TypeScript language server, including the tsc TypeScript compiler.
-    @types/*	            ==> TypeScript definition files. Learn more about it in the TypeScript Configuration chapter.
+#### DevDependencies Packages
+> concurrently	        ==> A utility to run multiple npm commands concurrently on OS/X, Windows, and Linux operating systems.
+>
+> typescript	        ==> the TypeScript language server, including the tsc TypeScript compiler.
+>
+> @types/*	            ==> TypeScript definition files. Learn more about it in the TypeScript Configuration chapter.
 
-Angular 2 component
+#### Angular 2 component
 
 An Angular 2 component is essentially a JavaScript class adorned with the @Component decorator in which you define a template.
 The class encapsulates the behavior of the component and the template encapsulates the view.
@@ -122,7 +124,7 @@ Angular does the work to wire the view to the behavior for you.
 Components are the building blocks of your application. At the root of your application, is a component containing other components, composed together to form a user interface.
 This composition is sometimes called a component tree where the root component contains all of the other components in your application and leaf components represent the re-usable widgets of your application with which the user interacts.
 
-Angular 2 Module
+#### Angular 2 Module
 
 Angular modules are defined with the NgModule decorator where as ECMAScript 2015 (ES2015) are just modules.
 The difference between an NgModule and an ES2015 module?
@@ -130,5 +132,59 @@ The difference between an NgModule and an ES2015 module?
 
 Angular requires you to have at least one NgModule in your application.
 
-Angular 2 Bootstrap
+#### Angular 2 Bootstrap
+
 Angular 2 provides multiple ways to bootstrap your application depending on where it is running (server versus browser) and whether it has been compiled ahead of time (AOT) or just-in-time (JIT) compilations.
+
+
+#### Angular 2 Directive
+
+There are 3 types of directives:
+
+1. Components
+    A component directive requires a view along with its attached behaviour. This type of directive adds DOM elements.
+2. Structural Directives
+    Modifies the DOM layout i.e add or remove HTML element from the DOM
+3. Attribute Directives
+    Modifies the appearance or behavior of an element
+
+Template Syntax
+----------------------------
+
+`@Component({ 
+    template: ` <h2>{{user.name}}</h2> <img [src]="user.imageUrl"/> <button (click)="doSomething()"></button>`
+    })
+
+    export class ProfileComponent { 
+        user = {name: 'John Doe', imageUrl: 'doe.com/profile.jpg'}
+        doSomething() { }
+    }`
+
+**Template Expression**
+
+    {{user.name}} ==> Interpolation
+    [src] ==> Property Binding
+
+Can't Do With EXPRESSION
+    Assignments ( =. +=, ++, etc)
+    new Keyword
+    Expression Chaining With ;
+    Global namespaces
+
+Recommendations of Usage
+    No Side-Effects
+    Fast
+    Simple
+    Idempotent
+
+**Template Statements**
+
+    (click)="doSomething()"
+
+Can't Do With EXPRESSION
+    Assignments Except = (+=, ++, etc)
+    new Keyword
+    Global namespaces
+
+Recommendations of Usage
+    Simple

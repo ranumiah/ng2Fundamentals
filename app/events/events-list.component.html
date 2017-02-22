@@ -1,9 +1,14 @@
 <div>
-  <h1>Upcoming Anuglar 2 Events</h1>
+  <h1>Upcoming Angular 2 Events</h1>
   <hr/>
   <!-- The Selector <event-thumbnail />
        [event] ==> This must match the name of an Input() parameter in the child component
-       "event1" ==> This must be a property exposed in the parent component
+       "events" ==> This must be a property exposed in the parent component
+       *ngFor="let event of events" ==> foreach(var event in events)
   -->
-  <event-thumbnail [event]="event1"></event-thumbnail>
+  <div class="row">
+    <div *ngFor="let event of events" class="col-md-4">
+      <event-thumbnail [event]="event"></event-thumbnail>
+    </div>
+  </div>
 </div>
