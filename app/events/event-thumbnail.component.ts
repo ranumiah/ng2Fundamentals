@@ -27,4 +27,10 @@ export class EventThumbnailComponent {
             return ['green', 'bold'] // class name in the style
         return []
     }
+
+    getStartTimeStyle() {
+        if (this.event && this.event.time === '8:00 am')
+            return { color: '#32CD32', 'font-weight': 'bold' }
+        return {}
+    }
 }
