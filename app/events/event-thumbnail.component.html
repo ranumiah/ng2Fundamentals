@@ -8,11 +8,11 @@
     <span *ngSwitchDefault>(Normal Start)</span>
   </div>
   <div>Price: ${{event?.price}}</div>
-  <div *ngIf="event?.location">
+  <div [ngClass]="getStartTimeClassStyleUsingArray()" *ngIf="event?.location">
     <span>Location: {{event?.location?.address}}</span>
     <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
   </div>
-  <div *ngIf="event?.onlineUrl">
+  <div [ngClass]="getStartTimeClassStyleUsingObject()" *ngIf="event?.onlineUrl">
     Online URL: {{event?.onlineUrl}}
   </div>
 </div>
