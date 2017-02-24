@@ -6,6 +6,7 @@ import { EventListComponent } from './events/events-list.component'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component'
 import { EventSerivce } from './events/shared/event.service'
+import { ToastrService } from './common/toastr.service'
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -16,7 +17,10 @@ import { EventSerivce } from './events/shared/event.service'
         EventThumbnailComponent,
         NavBarComponent
     ],
-    providers: [EventSerivce],      // what services do I need?
+    providers: [                    // what services do I need?
+        EventSerivce,
+        ToastrService
+    ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
 })
 export class AppModule { }
