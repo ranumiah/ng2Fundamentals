@@ -10,6 +10,7 @@ import { EventService } from './events/shared/event.service'
 import { ToastrService } from './common/toastr.service'
 import { EventDetailsComponent } from './events/event-details/event-details.component'
 import { appRoutes } from './routes'
+import { CreateEventComponent } from './events/create-event.component'
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -22,7 +23,8 @@ import { appRoutes } from './routes'
         EventListComponent,
         EventThumbnailComponent,
         EventDetailsComponent,
-        NavBarComponent
+        NavBarComponent,
+        CreateEventComponent
     ],
     providers: [                    // what services do I need?
         EventService,
