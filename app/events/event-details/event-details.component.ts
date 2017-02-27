@@ -17,9 +17,12 @@ export class EventDetailsComponent {
     constructor(private eventService: EventService, private route: ActivatedRoute) {
 
     }
-    // We navigate to this page via: /events/1  
+    // We navigate to this page via: /events/1
+    // this.route.snapshot.params['id'] ==> Gets the parameters of the current route, which was used to access this componet
+    // + ==> casting the 
+    // .params['id'] ==> matches /:id from routes.ts
     ngOnInit() {
-        this.event = this.eventService.getEvent(1)
+        this.event = this.eventService.getEvent(+this.route.snapshot.params['id'])
     }
 
 }
