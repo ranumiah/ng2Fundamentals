@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { RouterModule } from '@angular/router'
 
 import { EventsAppCoponent } from './events-app.component'
 import { EventListComponent } from './events/events-list.component'
@@ -8,10 +9,14 @@ import { NavBarComponent } from './nav/navbar.component'
 import { EventSerivce } from './events/shared/event.service'
 import { ToastrService } from './common/toastr.service'
 import { EventDetailsComponent } from './events/event-details/event-details.component'
+import { appRoutes } from './routes'
 
 // So this guy describes the class that follows it
 @NgModule({
-    imports: [BrowserModule],       // What stuff do I need?
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes)
+    ],                              // What stuff do I need?
     declarations: [                 // What's in my app module?
         EventsAppCoponent,
         EventListComponent,
