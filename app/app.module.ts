@@ -6,7 +6,7 @@ import { EventsAppCoponent } from './events-app.component'
 import { EventListComponent } from './events/events-list.component'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component'
-import { EventSerivce } from './events/shared/event.service'
+import { EventService } from './events/shared/event.service'
 import { ToastrService } from './common/toastr.service'
 import { EventDetailsComponent } from './events/event-details/event-details.component'
 import { appRoutes } from './routes'
@@ -25,7 +25,7 @@ import { appRoutes } from './routes'
         NavBarComponent
     ],
     providers: [                    // what services do I need?
-        EventSerivce,
+        EventService,
         ToastrService
     ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
