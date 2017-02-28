@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs/RX'
 
 @Injectable()
 export class EventService {
     getEvents() {
-        return EVENTS
+        let subject = new Subject() // Subject is a type of Observable
+        // Adding data into the stream asynchronously
+        setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100)
+        return subject  // return the Observable
     }
 
     getEvent(id: number) {
