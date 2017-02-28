@@ -198,3 +198,15 @@ There are two types of forms Angular allow to use.
     Things like cross field validation are more defficult and can't be unit tested
 2. Model (Reactive) Base
     This allows you to build your form but leaving a lot of the logic in the component
+
+
+TODO
+====
+Binding...One.Way...Two.Way....[(ngModel)] is two way (ngModel) is one way
+Providers ==> are shared across in Anuglar 2 modules BUT not for Imports or Declarations
+loginForm.valid
+loginForm.invalid
+loginForm.pristine
+loginForm.submitted
+loginForm.touched
+loginForm.untouched
