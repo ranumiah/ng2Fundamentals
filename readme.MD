@@ -188,3 +188,13 @@ Can't Do With EXPRESSION
 
 Recommendations of Usage
     Simple
+
+#### Angular 2 Forms
+
+There are two types of forms Angular allow to use.
+1. Template Base
+    Template base form allows you to build completely in your HTML template
+    Great for simple form but if you have complex form with lots of logic then don't use this.
+    Things like cross field validation are more defficult and can't be unit tested
+2. Model (Reactive) Base
+    This allows you to build your form but leaving a lot of the logic in the component
