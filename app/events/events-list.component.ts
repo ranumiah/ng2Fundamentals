@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+
 // Path Are Relative to current location
-import { EventSerivce } from './shared/event.service'
+import { EventService } from './shared/event.service'
 import { ToastrService } from '../common/toastr.service'
 
 @Component({
-    selector: 'events-list',
     templateUrl: 'app/events/events-list.component.html',
 })
 
 export class EventListComponent implements OnInit {
-    events: any[]
+    events: any
 
-    constructor(private eventService: EventSerivce, private toastr: ToastrService) {
+    constructor(private eventService: EventService, private toastr: ToastrService, private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this.events = this.eventService.getEvents()
+        // 'eventReceived' ==> This must match with what is in the routes.ts
+        this.events = this.route.snapshot.data['eventReceived']
     }
 
     handleThumbnailClick(eventName) {
