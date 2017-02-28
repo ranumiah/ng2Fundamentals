@@ -14,5 +14,10 @@ export const appRoutes: Routes = [
     // canActivate ==> using Service to guard against route activation
     { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator] },
     { path: '404', component: Error404Component },
-    { path: '', redirectTo: '/events', pathMatch: 'full' } // default
+    { path: '', redirectTo: '/events', pathMatch: 'full' }, // default
+    // path:user ==> prefix with /user/
+    // loadChildren: 'app/user/user.module#UserModule ==> This is a two part to load the module
+    // app/user/user.module ==> Path to the file where the Module
+    // #UserModule ==> The name of the Module
+    { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
 ]
