@@ -9,6 +9,8 @@ export class EventListResolver implements Resolve<any> {
     }
 
     resolve() {
-        return this.eventService.getEvents().map(events => events)
+        // (events => events) is Short Hand for ( (events) => {return events})
+        // 'eventReceived' ==> This must match with what is in the routes.ts
+        return this.eventService.getEvents().map(eventReceived => eventReceived)
     }
 }

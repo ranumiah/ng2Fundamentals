@@ -34,8 +34,8 @@ import { EventListResolver } from './events/events-list-resolver.service'
         EventService,
         ToastrService,
         EventRouteActivator,
-        EventListResolver,          // This is a long-hand
-        {
+        EventListResolver,
+        {                           // This is a long-hand
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
         }
