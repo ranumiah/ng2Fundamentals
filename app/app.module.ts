@@ -11,6 +11,8 @@ import { ToastrService } from './common/toastr.service'
 import { EventDetailsComponent } from './events/event-details/event-details.component'
 import { appRoutes } from './routes'
 import { CreateEventComponent } from './events/create-event.component'
+import { Error404Component } from './errors/404.component'
+import { EventRouteActivator } from './events/event-details/event-route-activator.service'
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -24,11 +26,13 @@ import { CreateEventComponent } from './events/create-event.component'
         EventThumbnailComponent,
         EventDetailsComponent,
         NavBarComponent,
-        CreateEventComponent
+        CreateEventComponent,
+        Error404Component
     ],
     providers: [                    // what services do I need?
         EventService,
-        ToastrService
+        ToastrService,
+        EventRouteActivator
     ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
 })
