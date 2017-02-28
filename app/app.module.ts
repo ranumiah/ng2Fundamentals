@@ -13,6 +13,7 @@ import { appRoutes } from './routes'
 import { CreateEventComponent } from './events/create-event.component'
 import { Error404Component } from './errors/404.component'
 import { EventRouteActivator } from './events/event-details/event-route-activator.service'
+import { EventListResolver } from './events/events-list-resolver.service'
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -29,15 +30,26 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
         CreateEventComponent,
         Error404Component
     ],
-    providers: [                    // what services do I need?
+    providers: [                    // what services do I need? using short-hand
         EventService,
         ToastrService,
-        EventRouteActivator
+        EventRouteActivator,
+        EventListResolver,          // This is a long-hand
+        {
+            provide: 'canDeactivateCreateEvent',
+            useValue: checkDirtyState
+        }
     ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
 })
 export class AppModule { }
 
+// this should have been somewhere else but for learning it is here for now
+function checkDirtyState(component: CreateEventComponent) {
+    if (component.isDirty)
+        return window.confirm('You have not saved this event, do you really want to cancel?')
+    return true
+}
 
 // All the configuration occurs in the NgModule decorator. The bootstrap property is only necessary in this root NgModule.
 // It instructs Angular to examine the existing DOM (parsed from index.html in this case), identifying the elements to replace with the components defined in bootstrap.
