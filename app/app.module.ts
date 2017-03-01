@@ -23,7 +23,8 @@ import {
     TOASTR_TOKEN,
     IToastr,
     CollapsibleWellComponent,
-    SimpleModalComponent
+    SimpleModalComponent,
+    ModalTriggerDirective
 } from './common/index'
 
 import { EventsAppCoponent } from './events-app.component'
@@ -32,8 +33,8 @@ import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 
-declare let toastr: IToastr
-declare let jQuery: Object
+declare let toastr: IToastr;
+declare let jQuery: Object;
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -55,7 +56,8 @@ declare let jQuery: Object
         SessionListComponent,
         CollapsibleWellComponent,
         DurationPipe,
-        SimpleModalComponent
+        SimpleModalComponent,
+        ModalTriggerDirective       // Directives also goes under Declarations
     ],
     providers: [                    // what services do I need? using short-hand
         EventService,
