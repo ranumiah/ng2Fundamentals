@@ -1,9 +1,13 @@
+// Angular Components
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
+// Third Party Components
+import { TOASTR_TOKEN, IToastr } from './common/toastr.service'
 
+// My Components
 import {
     EventListComponent,
     EventThumbnailComponent,
@@ -19,11 +23,12 @@ import {
 
 import { EventsAppCoponent } from './events-app.component'
 import { NavBarComponent } from './nav/navbar.component'
-import { ToastrService } from './common/toastr.service'
 import { CollapsibleWellComponent } from './common/collapsible-well.component'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
+
+declare let toastr: IToastr
 
 // So this guy describes the class that follows it
 @NgModule({
@@ -48,7 +53,9 @@ import { AuthService } from './user/auth.service'
     ],
     providers: [                    // what services do I need? using short-hand
         EventService,
-        ToastrService,
+        // Whenever TOASTR_TOKEN is used then use toastr object
+        { provide: TOASTR_TOKEN, useValue: toastr },
+        // { provide: EventRouteActivator, useClass: EventRouteActivator } === EventRouteActivator,
         EventRouteActivator,
         EventListResolver,
         AuthService,
