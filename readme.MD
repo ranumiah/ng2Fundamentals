@@ -210,3 +210,14 @@ loginForm.submitted
 loginForm.touched
 loginForm.untouched
 ngModelGroup
+
+
+#### Pipes vs Filters
+
+Angular JS Filters
+* Formatting
+* Sorting
+* Filtering
+
+Angular 2 Pipes
+* Formatting
