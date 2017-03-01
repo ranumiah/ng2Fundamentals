@@ -2,9 +2,7 @@ Angular 2 Fundamentals Course
 ========================
 This is the getting started package for the Pluralsight course on Angular 2 Fundamentals found here: http://app.pluralsight.com/courses/angular-fundamentals
 
-**Course Status**
-
-The course is currently up-to-date.
+[Angular 2 WebSite](https://angular.io/)
 
 
 Getting Started
@@ -199,6 +197,7 @@ There are two types of forms Angular allow to use.
 2. Model (Reactive) Base
     This allows you to build your form but leaving a lot of the logic in the component
 
+[Different Types of Validators](https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html)
 
 TODO
 ====
