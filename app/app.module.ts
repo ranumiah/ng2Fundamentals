@@ -22,7 +22,8 @@ import {
     JQ_TOKEN,
     TOASTR_TOKEN,
     IToastr,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    SimpleModalComponent
 } from './common/index'
 
 import { EventsAppCoponent } from './events-app.component'
@@ -53,12 +54,14 @@ declare let jQuery: Object
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
-        DurationPipe
+        DurationPipe,
+        SimpleModalComponent
     ],
     providers: [                    // what services do I need? using short-hand
         EventService,
         // Whenever TOASTR_TOKEN is used then use toastr object
         { provide: TOASTR_TOKEN, useValue: toastr },
+        { provide: JQ_TOKEN, useValue: jQuery },
         // { provide: EventRouteActivator, useClass: EventRouteActivator } === EventRouteActivator,
         EventRouteActivator,
         EventListResolver,
