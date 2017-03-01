@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { RouterModule } from '@angular/router'
+import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 
 import {
@@ -10,7 +11,8 @@ import {
     EventDetailsComponent,
     CreateEventComponent,
     EventRouteActivator,
-    EventListResolver
+    EventListResolver,
+    CreateSessionComponent
 } from './events/index'
 
 import { EventsAppCoponent } from './events-app.component'
@@ -18,11 +20,14 @@ import { NavBarComponent } from './nav/navbar.component'
 import { ToastrService } from './common/toastr.service'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
+import { AuthService } from './user/auth.service'
 
 // So this guy describes the class that follows it
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(appRoutes)
     ],                              // What stuff do I need?
     declarations: [                 // What's in my app module?
@@ -32,13 +37,15 @@ import { Error404Component } from './errors/404.component'
         EventDetailsComponent,
         NavBarComponent,
         CreateEventComponent,
-        Error404Component
+        Error404Component,
+        CreateSessionComponent
     ],
     providers: [                    // what services do I need? using short-hand
         EventService,
         ToastrService,
         EventRouteActivator,
         EventListResolver,
+        AuthService,
         {                           // This is a long-hand
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState

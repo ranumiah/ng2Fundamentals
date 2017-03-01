@@ -2,9 +2,7 @@ Angular 2 Fundamentals Course
 ========================
 This is the getting started package for the Pluralsight course on Angular 2 Fundamentals found here: http://app.pluralsight.com/courses/angular-fundamentals
 
-**Course Status**
-
-The course is currently up-to-date.
+[Angular 2 WebSite](https://angular.io/)
 
 
 Getting Started
@@ -188,3 +186,27 @@ Can't Do With EXPRESSION
 
 Recommendations of Usage
     Simple
+
+#### Angular 2 Forms
+
+There are two types of forms Angular allow to use.
+1. Template Base (login.component.ts)
+    Template base form allows you to build completely in your HTML template
+    Great for simple form but if you have complex form with lots of logic then don't use this.
+    Things like cross field validation are more defficult and can't be unit tested
+2. Model (Reactive) Base (profile.component.ts)
+    This allows you to build your form but leaving a lot of the logic in the component
+
+[Different Types of Validators](https://angular.io/docs/ts/latest/api/forms/index/Validators-class.html)
+
+TODO
+====
+Binding...One.Way...Two.Way....[(ngModel)] is two way (ngModel) is one way
+Providers ==> are shared across in Anuglar 2 modules BUT not for Imports or Declarations
+loginForm.valid
+loginForm.invalid
+loginForm.pristine
+loginForm.submitted
+loginForm.touched
+loginForm.untouched
+ngModelGroup

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core'
 
+import { IEvent } from './shared/index'
+
 @Component({
     selector: 'event-thumbnail',
     templateUrl: 'app/events/event-thumbnail.component.html',
@@ -15,7 +17,7 @@ import { Component, Input } from '@angular/core'
 })
 
 export class EventThumbnailComponent {
-    @Input() event: any
+    @Input() event: IEvent
 
     getStartTimeClassStyleUsingObject() {
         const isOnline = this.event && this.event.onlineUrl
