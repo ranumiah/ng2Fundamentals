@@ -209,3 +209,4 @@ loginForm.pristine
 loginForm.submitted
 loginForm.touched
 loginForm.untouched
+ngModelGroup
