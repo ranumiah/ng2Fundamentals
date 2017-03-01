@@ -20,4 +20,14 @@
             </address>
         </div>
     </div>
+
+    <hr>
+
+    <!--I want to bind the sessions property of the sessions list component to the session array on the event object
+    [sessions]          ==> session property
+    <session-list />    ==> session-list.component.ts
+    "event?.sessions"   ==> IEvent object has a property called ISession access it only if IEvent IS NOT NULL
+    -->
+    <session-list [sessions]="event?.sessions"></session-list>
+
 </div>
