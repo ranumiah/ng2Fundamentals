@@ -35,7 +35,8 @@
                     <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Sessions">
                 </div>
                 <!--modal-trigger ==> is a Directive-->
-                <button class="btn btn-default" modal-trigger>
+                <!--modal-trigger="searchResults" ==> you are a modal trigger for searchResults only-->
+                <button class="btn btn-default" modal-trigger="searchResults">
           Search
         </button>
             </form>
@@ -43,7 +44,7 @@
     </div>
 </div>
 
-<simple-modal title="Matching Sessions">
+<simple-modal elementId="searchResults" title="Matching Sessions">
     <div class="list-group">
         <!--no matter where we are at /events ==> will always go to the route then events-->
         <a class="list-group-item" *ngFor="let session of foundSessions" [routerLink]="['/events', session.eventId]">{{session.name}}</a>

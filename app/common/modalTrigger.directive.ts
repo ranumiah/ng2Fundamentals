@@ -8,6 +8,7 @@ import { JQ_TOKEN } from './jQuery.service'
 })
 export class ModalTriggerDirective implements OnInit {
     private el: HTMLElement;
+    // 'modal-trigger' is coming but I want you to assign it to modalId becuase - is not allowed for name
     @Input('modal-trigger') modalId: string;
 
     constructor(ref: ElementRef, @Inject(JQ_TOKEN) private $: any) {
@@ -16,7 +17,8 @@ export class ModalTriggerDirective implements OnInit {
 
     ngOnInit() {
         this.el.addEventListener('click', e => {
-            this.$('#simple-modal').modal({})
+            // `` ==> is an ES6 Interpolation string
+            this.$(`#${this.modalId}`).modal({})
         })
     }
 }
