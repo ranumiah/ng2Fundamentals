@@ -18,7 +18,8 @@ import {
     DurationPipe,
     UpvoteComponent,
     VoterService,
-    LocationValidator
+    LocationValidator,
+    EventResolver
 } from './events/index'
 
 import {
@@ -77,7 +78,8 @@ declare let jQuery: Object;
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
         },
-        VoterService
+        VoterService,
+        EventResolver
     ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
 })
