@@ -16,9 +16,9 @@ import { EventService } from './shared/index'
 })
 export class CreateEventComponent {
     isDirty: boolean = true
-    constructor(private router: Router, private eventService: EventService) {
+    event: any = { location: {} }
 
-    }
+    constructor(private router: Router, private eventService: EventService) { }
 
     saveEvent(formValues) {
         this.eventService.saveEvent(formValues)
