@@ -221,3 +221,6 @@ Angular JS Filters
 
 Angular 2 Pipes
 * Formatting
+
+Component is an Element
+Directive is an Attribute
