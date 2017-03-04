@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router'
 
 import { IEvent, ISession, EventService } from '../shared/index'
 
@@ -23,10 +23,15 @@ export class EventDetailsComponent implements OnInit {
     }
     // We navigate to this page via: /events/1
     // this.route.snapshot.params['id'] ==> Gets the parameters of the current route, which was used to access this componet
-    // + ==> casting the 
+    // + ==> casting the string to int 
     // .params['id'] ==> matches /:id from routes.ts
+
+    // Subscribing to the route changes
     ngOnInit() {
-        this.event = this.eventService.getEvent(+this.route.snapshot.params['id'])
+        this.route.params.forEach((params: Params) => {
+            this.event = this.eventService.getEvent(+params['id']);
+            this.addMode = false;
+        })
     }
 
     addSession() {
