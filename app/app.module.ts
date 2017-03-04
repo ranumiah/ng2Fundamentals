@@ -15,7 +15,11 @@ import {
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
-    DurationPipe
+    DurationPipe,
+    UpvoteComponent,
+    VoterService,
+    LocationValidator,
+    EventResolver
 } from './events/index'
 
 import {
@@ -57,7 +61,9 @@ declare let jQuery: Object;
         CollapsibleWellComponent,
         DurationPipe,
         SimpleModalComponent,
-        ModalTriggerDirective       // Directives also goes under Declarations
+        ModalTriggerDirective,      // Directives also goes under Declarations
+        UpvoteComponent,
+        LocationValidator
     ],
     providers: [                    // what services do I need? using short-hand
         EventService,
@@ -71,7 +77,9 @@ declare let jQuery: Object;
         {                           // This is a long-hand
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
-        }
+        },
+        VoterService,
+        EventResolver
     ],
     bootstrap: [EventsAppCoponent]  // Where do I start?
 })
