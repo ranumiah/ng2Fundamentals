@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
 // My Components
 import {
@@ -42,12 +43,13 @@ declare let jQuery: Object;
 
 // So this guy describes the class that follows it
 @NgModule({
-    imports: [
+    imports: [                          // What stuff do I need?
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes)
-    ],                              // What stuff do I need?
+        RouterModule.forRoot(appRoutes),
+        HttpModule
+    ],
     declarations: [                 // What's in my app module?
         EventsAppCoponent,
         EventListComponent,

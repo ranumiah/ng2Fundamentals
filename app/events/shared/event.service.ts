@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core'
+import { Http, Response, Headers, RequestOptions } from '@angular/http'
 
 import { Subject, Observable } from 'rxjs/RX'
 
@@ -6,8 +7,20 @@ import { IEvent, ISession } from './event.model'
 
 @Injectable()
 export class EventService {
-    // Return type of Generice Observable of IEvent[]
+
+    constructor(private http: Http) { }
+
     getEvents(): Observable<IEvent[]> {
+        // this.http.get("/api/events") returns an Observable<Response>
+        // .map((response: Response) converts the Observable<Response> to a Observable<IEvent[]>
+        return this.http.get("/api/events").map((response: Response) => {
+            return <IEvent[]>response.json();
+            // Catching Exception when occurs
+        }).catch(this.handleError);
+    }
+
+    // Return type of Generice Observable of IEvent[]
+    getEventUsingStaticData(): Observable<IEvent[]> {
         let subject = new Subject<IEvent[]>() // Subject is a type of Observable
         // Adding data into the stream asynchronously
         setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100)
@@ -48,6 +61,10 @@ export class EventService {
             emitter.emit(results);
         }, 100);
         return emitter;
+    }
+
+    private handleError(error: Response) {
+        return Observable.throw(error.statusText);
     }
 }
 
