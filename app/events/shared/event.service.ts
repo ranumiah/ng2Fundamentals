@@ -44,6 +44,7 @@ export class EventService {
         EVENTS.push(event)
     }
 
+    // This uses Post and PUT depending on the input    
     saveEvent(event): Observable<IEvent> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -59,7 +60,7 @@ export class EventService {
     //     EVENTS[index] = event
     // }
 
-    searchSessions(searchTerm: string) {
+    searchSessionsUsingStaticData(searchTerm: string) {
         var term = searchTerm.toLocaleLowerCase();
         var results: ISession[] = [];
 
@@ -77,6 +78,12 @@ export class EventService {
             emitter.emit(results);
         }, 100);
         return emitter;
+    }
+
+    searchSessions(searchTerm: string) {
+        return this.http.get("/api/sessions/search?search=" + searchTerm).map((response: Response) => {
+            return response.json();
+        }).catch(this.handleError);
     }
 
     private handleError(error: Response) {
