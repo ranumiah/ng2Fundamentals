@@ -51,6 +51,6 @@
     "event?.sessions"   ==> IEvent object has a property called ISession access it only if IEvent IS NOT NULL
     "filterBy"   ==> property in event-details.component.ts
     -->
-    <session-list [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+    <session-list [eventId]="event?.id" [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
     <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></create-session>
 </div>
