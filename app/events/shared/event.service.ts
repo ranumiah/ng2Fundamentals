@@ -20,15 +20,21 @@ export class EventService {
     }
 
     // Return type of Generice Observable of IEvent[]
-    getEventUsingStaticData(): Observable<IEvent[]> {
+    getEventsUsingStaticData(): Observable<IEvent[]> {
         let subject = new Subject<IEvent[]>() // Subject is a type of Observable
         // Adding data into the stream asynchronously
         setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100)
         return subject  // return the Observable
     }
 
+    getEvent(id: number): Observable<IEvent> {
+        return this.http.get("/api/events/" + id).map((response: Response) => {
+            return <IEvent>response.json();
+        }).catch(this.handleError);
+    }
+
     // Return type of IEvent    
-    getEvent(id: number): IEvent {
+    getEventUsingStaticData(id: number): IEvent {
         return EVENTS.find(event => event.id === id)
     }
 

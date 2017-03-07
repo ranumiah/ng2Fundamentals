@@ -12,7 +12,6 @@ import {
     EventService,
     EventDetailsComponent,
     CreateEventComponent,
-    EventRouteActivator,
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
@@ -73,7 +72,7 @@ declare let jQuery: Object;
         { provide: TOASTR_TOKEN, useValue: toastr },
         { provide: JQ_TOKEN, useValue: jQuery },
         // { provide: EventRouteActivator, useClass: EventRouteActivator } === EventRouteActivator,
-        EventRouteActivator,
+        //EventRouteActivator,
         EventListResolver,
         AuthService,
         {                           // This is a long-hand
