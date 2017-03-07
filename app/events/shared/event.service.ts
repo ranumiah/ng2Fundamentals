@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core'
+import { Http, Response, Headers, RequestOptions } from '@angular/http'
 
 import { Subject, Observable } from 'rxjs/RX'
 
@@ -6,31 +7,60 @@ import { IEvent, ISession } from './event.model'
 
 @Injectable()
 export class EventService {
-    // Return type of Generice Observable of IEvent[]
+
+    constructor(private http: Http) { }
+
     getEvents(): Observable<IEvent[]> {
+        // this.http.get("/api/events") returns an Observable<Response>
+        // .map((response: Response) converts the Observable<Response> to a Observable<IEvent[]>
+        return this.http.get("/api/events").map((response: Response) => {
+            return <IEvent[]>response.json();
+            // Catching Exception when occurs
+        }).catch(this.handleError);
+    }
+
+    // Return type of Generice Observable of IEvent[]
+    getEventsUsingStaticData(): Observable<IEvent[]> {
         let subject = new Subject<IEvent[]>() // Subject is a type of Observable
         // Adding data into the stream asynchronously
         setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100)
         return subject  // return the Observable
     }
 
+    getEvent(id: number): Observable<IEvent> {
+        return this.http.get("/api/events/" + id).map((response: Response) => {
+            return <IEvent>response.json();
+        }).catch(this.handleError);
+    }
+
     // Return type of IEvent    
-    getEvent(id: number): IEvent {
+    getEventUsingStaticData(id: number): IEvent {
         return EVENTS.find(event => event.id === id)
     }
 
-    saveEvent(event) {
+    saveEventUsingStaticData(event) {
         event.id = 999
         event.session = []
         EVENTS.push(event)
     }
 
-    updateEvent(event) {
-        let index = EVENTS.findIndex(x => x.id = event.id)
-        EVENTS[index] = event
+    // This uses Post and PUT depending on the input    
+    saveEvent(event): Observable<IEvent> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post('/api/events', JSON.stringify(event), options).map((response: Response) => {
+            return response.json();
+        }).catch(this.handleError);
     }
 
-    searchSessions(searchTerm: string) {
+    // this.http.get("/api/events/" + id) ==> is smart enough to know if its update or put requests
+    // updateEvent(event) {
+    //     let index = EVENTS.findIndex(x => x.id = event.id)
+    //     EVENTS[index] = event
+    // }
+
+    searchSessionsUsingStaticData(searchTerm: string) {
         var term = searchTerm.toLocaleLowerCase();
         var results: ISession[] = [];
 
@@ -48,6 +78,16 @@ export class EventService {
             emitter.emit(results);
         }, 100);
         return emitter;
+    }
+
+    searchSessions(searchTerm: string) {
+        return this.http.get("/api/sessions/search?search=" + searchTerm).map((response: Response) => {
+            return response.json();
+        }).catch(this.handleError);
+    }
+
+    private handleError(error: Response) {
+        return Observable.throw(error.statusText);
     }
 }
 

@@ -11,6 +11,9 @@ export class EventListResolver implements Resolve<any> {
     resolve() {
         // (events => events) is Short Hand for ( (events) => {return events})
         // 'eventReceived' ==> This must match with what is in the routes.ts
-        return this.eventService.getEvents().map(eventReceived => eventReceived)
+        // .map(eventReceived => eventReceived)
+
+        // we are subscribing to the observable. Therefore, we will receive data when available
+        return this.eventService.getEvents()
     }
 }

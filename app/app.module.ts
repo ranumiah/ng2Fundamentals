@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
 // My Components
 import {
@@ -11,7 +12,6 @@ import {
     EventService,
     EventDetailsComponent,
     CreateEventComponent,
-    EventRouteActivator,
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
@@ -42,12 +42,13 @@ declare let jQuery: Object;
 
 // So this guy describes the class that follows it
 @NgModule({
-    imports: [
+    imports: [                          // What stuff do I need?
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes)
-    ],                              // What stuff do I need?
+        RouterModule.forRoot(appRoutes),
+        HttpModule
+    ],
     declarations: [                 // What's in my app module?
         EventsAppCoponent,
         EventListComponent,
@@ -71,7 +72,7 @@ declare let jQuery: Object;
         { provide: TOASTR_TOKEN, useValue: toastr },
         { provide: JQ_TOKEN, useValue: jQuery },
         // { provide: EventRouteActivator, useClass: EventRouteActivator } === EventRouteActivator,
-        EventRouteActivator,
+        //EventRouteActivator,
         EventListResolver,
         AuthService,
         {                           // This is a long-hand
