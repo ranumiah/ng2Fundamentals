@@ -38,16 +38,26 @@ export class EventService {
         return EVENTS.find(event => event.id === id)
     }
 
-    saveEvent(event) {
+    saveEventUsingStaticData(event) {
         event.id = 999
         event.session = []
         EVENTS.push(event)
     }
 
-    updateEvent(event) {
-        let index = EVENTS.findIndex(x => x.id = event.id)
-        EVENTS[index] = event
+    saveEvent(event): Observable<IEvent> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post('/api/events', JSON.stringify(event), options).map((response: Response) => {
+            return response.json();
+        }).catch(this.handleError);
     }
+
+    // this.http.get("/api/events/" + id) ==> is smart enough to know if its update or put requests
+    // updateEvent(event) {
+    //     let index = EVENTS.findIndex(x => x.id = event.id)
+    //     EVENTS[index] = event
+    // }
 
     searchSessions(searchTerm: string) {
         var term = searchTerm.toLocaleLowerCase();
