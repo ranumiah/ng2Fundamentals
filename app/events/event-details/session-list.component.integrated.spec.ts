@@ -66,7 +66,9 @@ describe('SessionListComponent', () => {
 
       // This is using the NativeElement i.e te RAW DOM Query Selector
       expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+
+      // This is using the Angular 2 utility By function which allows to query by CSS or Directive, etc
+      expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1');
     })
   })
-
 })
