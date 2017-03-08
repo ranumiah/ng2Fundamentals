@@ -31,7 +31,7 @@ import {
     ModalTriggerDirective
 } from './common/index'
 
-import { EventsAppCoponent } from './events-app.component'
+import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/navbar.component'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
@@ -50,7 +50,7 @@ declare let jQuery: Object;
         HttpModule
     ],
     declarations: [                 // What's in my app module?
-        EventsAppCoponent,
+        EventsAppComponent,
         EventListComponent,
         EventThumbnailComponent,
         EventDetailsComponent,
@@ -82,7 +82,7 @@ declare let jQuery: Object;
         VoterService,
         EventResolver
     ],
-    bootstrap: [EventsAppCoponent]  // Where do I start?
+    bootstrap: [EventsAppComponent]  // Where do I start?
 })
 export class AppModule { }
 
