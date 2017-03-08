@@ -224,3 +224,75 @@ Angular 2 Pipes
 
 Component is an Element
 Directive is an Attribute
+
+
+#### Testing
+
+## Unit Test
+  A Test of a single "unit" of code. A unit can be whatever you define it to be. Generally it is as small as possible. Usually a single class but related classes can also be unit.
+
+* They are fast running milisecons
+* Involve Isolated Pieces of Code
+* Cheap to write, maybe initial test might take time.
+* Should cover a Single State Change
+* Assert 1 Thing i.e. not one line of code Assertion but one conceptual Assertion
+* Doesn't Cross Process Boundaries i.e. to Database or HTTP service.
+* 100% Reliable on every run.
+
+## Unit Test Structure
+
+# AAA
+* Arrange
+* Act
+* Assert
+
+# DAMP --> Descriptivwe And Meaningful Phrases
+* Can Have Some Duplication
+* A Good test Tells the story
+
+# Mocking
+  It is the mechanism of replacing the dependancy with a fake peice of code, which does less than original piece of code in a meaningful way.  This is done to increase speed, ease of testing, or avoid code we don't want to test.
+
+## End to End Test
+
+* They tend to be slow
+* Exercise the Entire System.  Therefore full system needs to be in place before these test can be run.
+
+## Jasmine - Unit Testing Framework
+
+* describe()    --> Contain function of suite of test
+* beforeEach()  --> Place for common Setup Code
+* it()          --> Each one of these create a seperate unit test
+* expect()      --> Assertion to verify if the test pass
+
+Matchers    --> Allows to express of what we are expecting like:
+    - toBe()
+    - toContain()
+    - toBeDefined()
+    - we can add our own
+
+## Karma - Command Line Unit Test Runner
+  This is what causes the test to be executed. It's complex in execution but simple in concept.  By default Karma Cli is on autoWatch mode.  Meaning it will automaticaly pick up the compile .js file and automatically rerun the test.
+  
+  test.spec.ts ==> karma only cares there's a 'test' in file name, where as I would care about 'spec' as it tells me this is a test file.
+
+* Runs Tests in Browser
+* Multiple Browsers
+* Reports Test Run Results
+
+## Isolated vs Integrated Tests
+
+# Isolated
+* Test Class Only - No Template
+* Constructed in Test
+* Simple
+* Best for Services & Pipes
+* Appropriate for Components & Directives
+
+# Integrated Tests
+* Test Class & Template
+* Constructed by Framework
+* Complex
+* Mainly Used for Components & Directives
+* Sometimes Used for Services
+* Deep or Shallow
