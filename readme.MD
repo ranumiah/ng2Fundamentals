@@ -340,3 +340,25 @@ Matchers    --> Allows to express of what we are expecting like:
 # Design Question
 >How Many Modules Should I Create?
 >>Modules are enable for Lazy Loading
+
+
+### Linting with TSLint
+
+This creates initial lint file
+
+    tslint --init
+
+This list all the errors in the project based on the pattern
+
+    tslint "app/**/*.ts"
+
+This Fixes all it can do automatically
+
+    tslint "app/**/*.ts" --fix
+
+
+Global Node Package Installation
+--------------------------------
+
+npm i -g karma-cli
+npm i -g tslint
