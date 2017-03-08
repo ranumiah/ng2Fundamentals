@@ -1,7 +1,7 @@
 // '@angular/core' ==> the exact location is in systems.config.js file
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
-import { AuthService } from './user/auth.service'
+import { AuthService } from './user/auth.service';
 
 @Component({
   selector: 'events-app',

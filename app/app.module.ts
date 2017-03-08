@@ -1,9 +1,9 @@
 // Angular Components
-import { NgModule } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
-import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { HttpModule } from '@angular/http'
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, ActivatedRouteSnapshot } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // My Components
 import {
@@ -20,7 +20,7 @@ import {
     VoterService,
     LocationValidator,
     EventResolver
-} from './events/index'
+} from './events/index';
 
 import {
     JQ_TOKEN,
@@ -29,13 +29,13 @@ import {
     CollapsibleWellComponent,
     SimpleModalComponent,
     ModalTriggerDirective
-} from './common/index'
+} from './common/index';
 
-import { EventsAppComponent } from './events-app.component'
-import { NavBarComponent } from './nav/navbar.component'
-import { appRoutes } from './routes'
-import { Error404Component } from './errors/404.component'
-import { AuthService } from './user/auth.service'
+import { EventsAppComponent } from './events-app.component';
+import { NavBarComponent } from './nav/navbar.component';
+import { appRoutes } from './routes';
+import { Error404Component } from './errors/404.component';
+import { AuthService } from './user/auth.service';
 
 declare let toastr: IToastr;
 declare let jQuery: Object;
@@ -72,7 +72,7 @@ declare let jQuery: Object;
         { provide: TOASTR_TOKEN, useValue: toastr },
         { provide: JQ_TOKEN, useValue: jQuery },
         // { provide: EventRouteActivator, useClass: EventRouteActivator } === EventRouteActivator,
-        //EventRouteActivator,
+        // EventRouteActivator,
         EventListResolver,
         AuthService,
         {                           // This is a long-hand
@@ -89,8 +89,8 @@ export class AppModule { }
 // this should have been somewhere else but for learning it is here for now
 function checkDirtyState(component: CreateEventComponent) {
     if (component.isDirty)
-        return window.confirm('You have not saved this event, do you really want to cancel?')
-    return true
+        return window.confirm('You have not saved this event, do you really want to cancel?');
+    return true;
 }
 
 // All the configuration occurs in the NgModule decorator. The bootstrap property is only necessary in this root NgModule.

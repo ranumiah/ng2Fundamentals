@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input } from '@angular/core';
 
-import { IEvent } from './shared/index'
+import { IEvent } from './shared/index';
 
 @Component({
     selector: 'event-thumbnail',
@@ -17,21 +17,21 @@ import { IEvent } from './shared/index'
 })
 
 export class EventThumbnailComponent {
-    @Input() event: IEvent
+    @Input() event: IEvent;
 
     getStartTimeClassStyleUsingObject() {
-        const isOnline = this.event && this.event.onlineUrl
-        return { blue: isOnline, bold: isOnline }
+        const isOnline = this.event && this.event.onlineUrl;
+        return { blue: isOnline, bold: isOnline };
     }
 
     getStartTimeClassStyleUsingArray() {
         if (this.event && this.event.location)
-            return ['green', 'bold'] // class name in the style
-        return []
+            return ['green', 'bold']; // class name in the style
+        return [];
     }
 
     getStartTimeStyle() {
         if (this.event && this.event.time === '8:00 am')
-            return { color: '#32CD32', 'font-weight': 'bold' }
+            return { color: '#32CD32', 'font-weight': 'bold' };
     }
 }

@@ -1,20 +1,20 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing'
-import { DebugElement, Component, NO_ERRORS_SCHEMA } from '@angular/core'
-import { By } from '@angular/platform-browser'
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { DebugElement, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
-import { SessionListComponent } from './session-list.component'
-import { AuthService } from '../../user/auth.service'
-import { VoterService } from './voter.service'
-import { ISession } from '../shared/event.model'
+import { SessionListComponent } from './session-list.component';
+import { AuthService } from '../../user/auth.service';
+import { VoterService } from './voter.service';
+import { ISession } from '../shared/event.model';
 
 // These needs but not tested
-import { DurationPipe } from '../shared/duration.pipe'
+import { DurationPipe } from '../shared/duration.pipe';
 
 describe('SessionListComponent', () => {
   let fixture: ComponentFixture<SessionListComponent>,
     component: SessionListComponent,
     element: HTMLElement,
-    debugEl: DebugElement
+    debugEl: DebugElement;
 
   beforeEach(async(() => {
     let mockAuthService = {
@@ -43,14 +43,14 @@ describe('SessionListComponent', () => {
       ]
       // This compiles the component and the style sheet
     }).compileComponents(); // This is not required when using WebPack as it does it for you
-  }))
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SessionListComponent);
     component = fixture.componentInstance;
     debugEl = fixture.debugElement;
     element = fixture.nativeElement;
-  })
+  });
 
   describe('initial display', () => {
 
@@ -68,6 +68,6 @@ describe('SessionListComponent', () => {
 
       // This is using the Angular 2 utility By function which allows to query by CSS or Directive, etc
       expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1');
-    })
-  })
-})
+    });
+  });
+});

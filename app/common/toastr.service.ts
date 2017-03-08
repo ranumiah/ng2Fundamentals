@@ -1,4 +1,4 @@
-import { OpaqueToken } from '@angular/core'
+import { OpaqueToken } from '@angular/core';
 
 // In Caps becuase it a Convension of using OpaqueToken
 export let TOASTR_TOKEN = new OpaqueToken('toastr');

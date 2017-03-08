@@ -1,5 +1,5 @@
-import { Directive, OnInit, Inject, ElementRef, Input } from '@angular/core'
-import { JQ_TOKEN } from './jQuery.service'
+import { Directive, OnInit, Inject, ElementRef, Input } from '@angular/core';
+import { JQ_TOKEN } from './jQuery.service';
 
 // This is similar to a Component
 @Directive({
@@ -18,7 +18,7 @@ export class ModalTriggerDirective implements OnInit {
     ngOnInit() {
         this.el.addEventListener('click', e => {
             // `` ==> is an ES6 Interpolation string
-            this.$(`#${this.modalId}`).modal({})
-        })
+            this.$(`#${this.modalId}`).modal({});
+        });
     }
 }

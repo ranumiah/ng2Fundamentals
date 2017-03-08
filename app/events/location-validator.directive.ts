@@ -20,7 +20,7 @@ export class LocationValidator implements Validator {
             // This is telling the validation system that this is passing with no problem
             return null;
         } else {
-            return { validateLocation: false }
+            return { validateLocation: false };
         }
     }
 } 
