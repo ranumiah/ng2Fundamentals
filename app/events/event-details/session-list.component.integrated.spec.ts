@@ -19,8 +19,13 @@ describe('SessionListComponent', () => {
     debugEl: DebugElement
 
   beforeEach(async(() => {
-    let mockAuthService = {};
-    let mockVoterService = {};
+    let mockAuthService = {
+      isAuthenticated: () => true,
+      currentUser: { userName: 'Joe' }
+    };
+    let mockVoterService = {
+      userHasVoted: () => true
+    };
 
     // This is like app.module.ts    
     TestBed.configureTestingModule({
@@ -59,6 +64,7 @@ describe('SessionListComponent', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
+      // This is using the NativeElement i.e te RAW DOM Query Selector
       expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
     })
   })
