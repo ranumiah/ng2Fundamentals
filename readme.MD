@@ -296,3 +296,47 @@ Matchers    --> Allows to express of what we are expecting like:
 * Mainly Used for Components & Directives
 * Sometimes Used for Services
 * Deep or Shallow
+
+
+### Production Readying The Code
+
+## Preparation Levels
+
+# Minimal --> Usually for Demo or Simple Static Site
+* Tune RxJS Requests
+* Enable Prod Mode
+
+# Full
+* Use AOT       --> 
+* Bundle        --> Combine all JS into One
+* Code Split    --> When the Bundle is to big then split it to smaller but still bundled
+* Minify        --> Remove extraneous characters, which are good for human redability
+* Tree Shake    --> Remove code that is not used in the system
+
+# Bundler Options
+* SystemJS  --> This uses Roolup
+* Webpack   --> This uses plugins
+
+# Lazy loading
+* Use Lazy Loaded Modules
+
+## AOT Benefits
+* Faster Rendering
+* Fewer Requests
+* Smaller Angular Framework Download
+* Detect Template Errors
+* Better Security
+
+## AOT No-No's
+* form.controls.controlName
+* control.errors?.someError
+* Default exports
+* Functions in providers, routes or
+* declarations of a module
+* Any field used in a template, including
+* Inputs, must be public
+* declare var for globals
+
+# Design Question
+>How Many Modules Should I Create?
+>>Modules are enable for Lazy Loading
