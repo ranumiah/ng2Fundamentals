@@ -1,3 +1,6 @@
+// Improting something that is used by different object but still have it available
+import './rxjs-extensions';
+
 // Angular Components
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

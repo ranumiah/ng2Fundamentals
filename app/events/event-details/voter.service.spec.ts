@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { VoterService } from './voter.service';
 import { ISession } from '../shared/event.model';
